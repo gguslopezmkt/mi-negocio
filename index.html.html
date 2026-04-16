@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>Trabajemos Juntos</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #001f5b, #0047cc);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero-content { max-width: 700px; }
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #c0d4ff;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    /* VIDEO PLACEHOLDER */
+    .video-placeholder {
+      background: rgba(255,255,255,0.1);
+      border: 2px dashed #00c6ff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 35px auto;
+      color: #00c6ff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* BOTONES HERO */
+    .hero-botones {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 16px 35px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background-color: #00c6ff;
+      color: #001f5b;
+    }
+    .btn-primary:hover { background-color: #ffffff; transform: scale(1.05); }
+    .btn-secondary {
+      background-color: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+    .btn-secondary:hover { background-color: #ffffff; color: #001f5b; transform: scale(1.05); }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.abierto { display: flex; }
+    .modal {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      max-width: 550px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-cerrar {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #555;
+      background: none;
+      border: none;
+    }
+    .modal h2 {
+      font-size: 1.6rem;
+      color: #001f5b;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .modal .modal-subtitulo {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    /* OPCIONES MODAL */
+    .opcion-card {
+      border: 2px solid #e0e8ff;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .opcion-card:hover { border-color: #0047cc; transform: translateY(-2px); }
+    .opcion-card h3 {
+      color: #001f5b;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .opcion-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .opcion-card ul li {
+      padding: 6px 0;
+      color: #444;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .opcion-card ul li:last-child { border-bottom: none; }
+    .opcion-card ul li span {
+      color: #0047cc;
+      font-weight: 600;
+    }
+    .opcion-card .descripcion-li {
+      font-size: 0.82rem;
+      color: #888;
+      display: block;
+    }
+    .opcion-card .btn-opcion {
+      margin-top: 15px;
+      background: #0047cc;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .opcion-card .btn-opcion:hover { background: #001f5b; }
+    .opcion-card .btn-opcion-verde {
+      margin-top: 15px;
+      background: #00b050;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .opcion-card .btn-opcion-verde:hover { background: #007a35; }
+
+    /* SECCIÓN AMWAY (oculta por defecto) */
+    .seccion-amway { display: none; }
+    .seccion-amway.visible { display: block; }
+
+    /* OPORTUNIDAD */
+    .oportunidad {
+      background: #f4f7ff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .oportunidad h2 {
+      font-size: 2.2rem;
+      color: #001f5b;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    .oportunidad .subtitulo {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      line-height: 1.7;
+    }
+    .datos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+    }
+    .dato-card aparecer {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 20px rgba(0,31,91,0.08);
+      transition: transform 0.2s;
+    }
+    .dato-card aparecer:hover { transform: translateY(-5px); }
+    .dato-card aparecer .icono { font-size: 2.5rem; margin-bottom: 15px; }
+    .dato-card aparecer .numero { font-size: 2rem; font-weight: 800; color: #0047cc; margin-bottom: 8px; }
+    .dato-card .descripcion { font-size: 0.95rem; color: #555; line-height: 1.5; }
+    .oportunidad .cta-texto { font-size: 1.2rem; color: #001f5b; font-weight: 600; margin-bottom: 25px; }
+
+    /* SLIDER */
+    .slider-seccion {
+      background: #001f5b;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .slider-seccion h2 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .slider-seccion .subtitulo { color: #c0d4ff; font-size: 1rem; margin-bottom: 40px; }
+    .slider-container { position: relative; max-width: 800px; margin: 0 auto; }
+    .slider-container img { width: 100%; border-radius: 12px; display: none; }
+    .slider-container img.activa { display: block; }
+    .flechas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-top: 25px;
+    }
+    .flecha {
+      background: #00c6ff;
+      color: #001f5b;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .flecha:hover { background: #ffffff; transform: scale(1.1); }
+    .contador { color: #c0d4ff; font-size: 1rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .video-placeholder { height: 200px; }
+      .hero-botones { flex-direction: column; align-items: center; }
+    }
+    @keyframes pulso {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Trabajemos Juntos</h1>
+      <p>Construyamos tu negocio digital</p>
+      <div class="video-placeholder">▶ VIDEO INTRODUCCIÓN</div>
+      <div class="hero-botones">
+        <button class="btn btn-primary" onclick="abrirModal()">¿Cómo te ayudo?</button>
+  <button class="btn btn-secondary" onclick="abrirModalTienda()">Tienda Digital</button>
+  <!-- MODAL TIENDA -->
+<div class="modal-overlay" id="modalTienda">
+  <div class="modal">
+    <button class="modal-cerrar" onclick="cerrarModalTienda()">✕</button>
+    <h2>🛍️ Tienda Digital</h2>
+    <p class="modal-subtitulo">¿Cómo querés registrarte?</p>
+<p style="background:#e8f4e8; color:#007a35; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.9rem; margin-bottom:20px;">
+  ✅ Con cualquiera de los dos registros contás con 90 días de garantía en todas tus compras
+</p
+
+    <!-- CLIENTE -->
+    <div class="opcion-card" onclick="toggleCliente()">
+      <h3>🛒 Cliente</h3>
+      <p style="color:#555; font-size:0.9rem;">Accedé a todos los productos directo de fábrica en tu casa</p>
+      <div id="pasoCliente" style="display:none; margin-top:15px;">
+        <p style="color:#0047cc; font-weight:700; margin-bottom:10px;">Paso a paso para registrarte:</p>
+        <ol style="padding-left:20px; color:#444; line-height:2;">
+          <li>Entrá a <a href="https://www.amway.com.ar/gguslopez" target="_blank" style="color:#0047cc;">amway.com.ar/gguslopez</a></li>
+          <li>Clickeá en <strong>"Registrarme"</strong> → <strong>"Cliente"</strong></li>
+          <li>Completá tu <strong>Nombre y Apellido</strong></li>
+          <li>Ingresá tu <strong>Correo electrónico</strong></li>
+          <li>Ingresá tu <strong>Teléfono</strong></li>
+          <li>Creá tu <strong>Contraseña</strong><br>
+            <span style="font-size:0.82rem; color:#888;">Ejemplo: <code>MiClave1!</code> — mínimo 8 caracteres, mayúscula, minúscula, número y símbolo</span>
+          </li>
+          <li>Ingresá tu <strong>DNI</strong></li>
+        </ol>
+        <a href="https://www.amway.com.ar/gguslopez" target="_blank" class="btn-opcion" style="margin-top:15px; display:inline-block;">
+          Ir a registrarme como cliente →
+        </a>
+      </div>
+    </div>
+
+    <!-- EMPRESARIO -->
+    <div class="opcion-card">
+      <h3>💼 Empresario</h3>
+      <p style="color:#555; font-size:0.9rem;">Comprá con 25% de descuento y escalá tu propia red de distribución</p>
+      <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Quiero%20generar%20una%20cuenta%20como%20empresario%20Amway" 
+         class="btn-opcion-verde" 
+         target="_blank"
+         style="margin-top:15px; display:inline-block;">
+        Quiero ser empresario →
+      </a>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+      <h2>¿En qué te puedo ayudar?</h2>
+      <p class="modal-subtitulo">Elegí la opción que mejor se adapta a lo que necesitás</p>
+
+<!-- OPCIÓN 1 -->
+      <div class="opcion-card">
+        <h3>🚀 Hacé crecer tu negocio online</h3>
+        <ul>
+          <li>
+            <span>Community Manager</span>
+            <span class="descripcion-li">Gestionamos tu presencia en redes</span>
+          </li>
+          <li>
+            <span>Content Creator</span>
+            <span class="descripcion-li">Contenido que conecta y vende</span>
+          </li>
+          <li>
+            <span>Tu página web profesional</span>
+            <span class="descripcion-li">Tu vitrina digital lista para vender</span>
+          </li>
+        </ul>
+        <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Estoy%20interesado%20en%20hacer%20crecer%20mi%20negocio%20online%20con%20marketing%20digital%20y%20programaci%C3%B3n%20web" class="btn-opcion" target="_blank">Quiero saber más →</a>
+      </div>
+
+      <!-- OPCIÓN 2 -->
+      <div class="opcion-card">
+        <h3>🏪 Quiero mi propio negocio desde cero</h3>
+        <ul>
+          <li>
+            <span>Sin jefes ni gastos fijos</span>
+            <span class="descripcion-li">Manejás tus propios tiempos</span>
+          </li>
+          <li>
+            <span>Respaldo de empresa global</span>
+            <span class="descripcion-li">65 años de trayectoria mundial</span>
+          </li>
+          <li>
+            <span>Sistema probado</span>
+            <span class="descripcion-li">+1 millón de empresarios en el mundo</span>
+          </li>
+        </ul>
+        <button class="btn-opcion-verde" onclick="verAmway()">Conocé más →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN AMWAY -->
+  <div class="seccion-amway" id="seccionAmway">
+
+    <!-- SLIDER -->
+    <section class="slider-seccion">
+      <h2>¿Por qué crear mi tienda en network Marketing?</h2>
+      <p class="subtitulo">Conocé cómo funciona la oportunidad paso a paso</p>
+      <div class="slider-container">
+        <img src="slides/slide1.png" class="activa" alt="Slide 1">
+        <img src="slides/slide2.png" alt="Slide 2">
+        <img src="slides/slide3.png" alt="Slide 3">
+        <img src="slides/slide4.png" alt="Slide 4">
+        <img src="slides/slide5.png" alt="Slide 5">
+        <img src="slides/slide6.png" alt="Slide 6">
+        <img src="slides/slide7.png" alt="Slide 7">
+        <img src="slides/slide8.png" alt="Slide 8">
+        <img src="slides/slide9.png" alt="Slide 9">
+        <img src="slides/slide10.png" alt="Slide 10">
+        <img src="slides/slide11.png" alt="Slide 11">
+      </div>
+<div class="progreso-container" style="max-width:800px; margin: 0 auto 20px auto;">
+  <div id="barraProgreso" style="
+    height: 6px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  ">
+    <div id="barraRelleno" style="
+      height: 100%;
+      width: 9%;
+      background: #00c6ff;
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    "></div>
+  </div>
+</div>
+  <button class="flecha" onclick="cambiarSlide(-1)">&#8592;</button>
+  <span class="contador" id="contador">1 / 11</span>
+  <button class="flecha" onclick="cambiarSlide(1)">&#8594;</button>
+</div>
+
+<div id="btnAgenda" style="display:none; margin-top:30px;">
+  <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Quiero%20agendar%20una%20videollamada%20gratuita%201%20a%201%20para%20iniciar%20mi%20negocio%20desde%200" 
+     target="_blank"
+     style="
+       background: #00c6ff;
+       color: #001f5b;
+       padding: 18px 40px;
+       border-radius: 50px;
+       font-size: 1.1rem;
+       font-weight: 800;
+       text-decoration: none;
+       display: inline-block;
+       animation: pulso 1.5s infinite;
+     ">
+    📅 Agendá una videollamada 1a1 gratuita
+  </a>
+  <p style="color:#c0d4ff; margin-top:15px; font-size:0.95rem;">
+    Conocé los productos, ganancias y beneficios
+  </p>
+</div>
+      
+    </section>
+
+    <!-- OPORTUNIDAD --> 
+
+  </div>
+
+  <script>
+    // MODAL
+    function abrirModalTienda() {
+  document.getElementById('modalTienda').classList.add('abierto');
+}
+function cerrarModalTienda() {
+  document.getElementById('modalTienda').classList.remove('abierto');
+}
+function toggleCliente() {
+  const paso = document.getElementById('pasoCliente');
+  paso.style.display = paso.style.display === 'none' ? 'block' : 'none';
+}
+document.getElementById('modalTienda').addEventListener('click', function(e) {
+  if (e.target === this) cerrarModalTienda();
+});
+    function abrirModal() {
+      document.getElementById('modalOverlay').classList.add('abierto');
+    }
+    function cerrarModal() {
+      document.getElementById('modalOverlay').classList.remove('abierto');
+    }
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
+
+    // VER AMWAY
+    function verAmway() {
+      cerrarModal();
+      const seccion = document.getElementById('seccionAmway');
+      seccion.classList.add('visible');
+      setTimeout(() => {
+        seccion.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    // SLIDER
+    let actual = 0;
+    const slides = document.querySelectorAll('.slider-container img');
+    const contador = document.getElementById('contador');
+function cambiarSlide(direccion) {
+  slides[actual].classList.remove('activa');
+  actual = (actual + direccion + slides.length) % slides.length;
+  slides[actual].classList.add('activa');
+  contador.textContent = (actual + 1) + ' / ' + slides.length;
+  document.getElementById('barraRelleno').style.width = ((actual + 1) / slides.length * 100) + '%';
+
+  if (actual === slides.length - 1) {
+    document.getElementById('btnAgenda').style.display = 'block';
+  }
+}
+  </script>
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20saber%20m%C3%A1s" 
+   target="_blank"
+   style="
+     position: fixed;
+     bottom: 25px;
+     right: 25px;
+     background: #25d366;
+     color: white;
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.8rem;
+     text-decoration: none;
+     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+     z-index: 999;
+     animation: pulso 1.5s infinite;
+   ">
+  💬
+</a>
+
+</body>
+</html>
