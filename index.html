@@ -297,32 +297,27 @@
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Trabajemos Juntos</h1>
-      <img src="foto.png"alt="Gus Lopez"style="
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 4px solid #00c6ff;
-">
-      <p>Construyamos tu negocio digital</p>
-      <div class="video-placeholder">▶ VIDEO INTRODUCCIÓN</div>
-      <div class="hero-botones">
-        <button class="btn btn-primary" onclick="abrirModal()">Quiero emprender</button>
-  <button class="btn btn-secondary" onclick="abrirModalTienda()">Tienda Digital</button>
-  <!-- MODAL TIENDA -->
-<div class="modal-overlay" id="modalTienda">
-  <div class="modal">
-    <button class="modal-cerrar" onclick="cerrarModalTienda()">✕</button>
-    <h2>🛍️ Tienda Digital</h2>
-    <p class="modal-subtitulo">¿Cómo querés registrarte?</p>
-<p style="background:#e8f4e8; color:#007a35; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.9rem; margin-bottom:20px;">
-  ✅ Con cualquiera de los dos registros contás con 90 días de garantía en todas tus compras
-</p
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="foto.png" alt="Gus Lopez" style="
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #00c6ff;
+    ">
+    <h1>Trabajemos Juntos</h1>
+    <p>Construyamos tu negocio digital</p>
+    <div class="video-placeholder">▶ VIDEO INTRODUCCIÓN</div>
+    <div class="hero-botones">
+      <button class="btn btn-primary" onclick="abrirModal()">Quiero emprender</button>
+      <button class="btn btn-secondary" onclick="abrirModalTienda()">Tienda Digital</button>
+    </div>
+  </div>
+</section>
+
 
     <!-- CLIENTE -->
     <div class="opcion-card" onclick="toggleCliente()">
@@ -364,7 +359,15 @@
       </div>
     </div>
   </section>
-
+  <!-- MODAL TIENDA -->
+<div class="modal-overlay" id="modalTienda">
+  <div class="modal">
+    <button class="modal-cerrar" onclick="cerrarModalTienda()">✕</button>
+    <h2>🛍️ Tienda Digital</h2>
+    <p class="modal-subtitulo">¿Cómo querés registrarte?</p>
+<p style="background:#e8f4e8; color:#007a35; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.9rem; margin-bottom:20px;">
+  ✅ Con cualquiera de los dos registros contás con 90 días de garantía en todas tus compras
+</p
   <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
