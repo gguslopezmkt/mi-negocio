@@ -318,9 +318,43 @@
   </div>
 </section>
 
+<!-- MODAL QUIERO EMPRENDER -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+    <h2>¿En qué te puedo ayudar?</h2>
+    <p class="modal-subtitulo">Elegí la opción que mejor se adapta a lo que necesitás</p>
+    <div class="opcion-card aparecer">
+      <h3>🏪 Quiero mi propio negocio desde cero</h3>
+      <ul>
+        <li>
+          <span>Sin jefes ni gastos fijos</span>
+          <span class="descripcion-li">Manejás tus propios tiempos</span>
+        </li>
+        <li>
+          <span>Respaldo de empresa global</span>
+          <span class="descripcion-li">65 años de trayectoria mundial</span>
+        </li>
+        <li>
+          <span>Sistema probado</span>
+          <span class="descripcion-li">+1 millón de empresarios en el mundo</span>
+        </li>
+      </ul>
+      <button class="btn-opcion-verde" onclick="verAmway()">Conocé más →</button>
+    </div>
+  </div>
+</div>
 
-    <!-- CLIENTE -->
-    <div class="opcion-card" onclick="toggleCliente()">
+<!-- MODAL TIENDA -->
+<div class="modal-overlay" id="modalTienda">
+  <div class="modal">
+    <button class="modal-cerrar" onclick="cerrarModalTienda()">✕</button>
+    <h2>🛍️ Tienda Digital</h2>
+    <p class="modal-subtitulo">¿Cómo querés registrarte?</p>
+    <p style="background:#e8f4e8; color:#007a35; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.9rem; margin-bottom:20px;">
+      ✅ Con cualquiera de los dos registros contás con 90 días de garantía en todas tus compras
+    </p>
+    <div class="opcion-card aparecer" onclick="toggleCliente()">
       <h3>🛒 Cliente</h3>
       <p style="color:#555; font-size:0.9rem;">Accedé a todos los productos directo de fábrica en tu casa</p>
       <div id="pasoCliente" style="display:none; margin-top:15px;">
@@ -341,9 +375,7 @@
         </a>
       </div>
     </div>
-
-    <!-- EMPRESARIO -->
-    <div class="opcion-card">
+    <div class="opcion-card aparecer">
       <h3>💼 Empresario</h3>
       <p style="color:#555; font-size:0.9rem;">Comprá con 25% de descuento y escalá tu propia red de distribución</p>
       <a href="https://calendly.com/gguslopez-amway/30min" 
@@ -353,52 +385,11 @@
         Quiero emprender →
       </a>
     </div>
-
   </div>
 </div>
-      </div>
-    </div>
-  </section>
-  <!-- MODAL TIENDA -->
-<div class="modal-overlay" id="modalTienda">
-  <div class="modal">
-    <button class="modal-cerrar" onclick="cerrarModalTienda()">✕</button>
-    <h2>🛍️ Tienda Digital</h2>
-    <p class="modal-subtitulo">¿Cómo querés registrarte?</p>
-<p style="background:#e8f4e8; color:#007a35; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.9rem; margin-bottom:20px;">
-  ✅ Con cualquiera de los dos registros contás con 90 días de garantía en todas tus compras
-</p
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
-      <h2>¿En qué te puedo ayudar?</h2>
-      <p class="modal-subtitulo">Elegí la opción que mejor se adapta a lo que necesitás</p>
 
-      <!-- OPCIÓN 2 -->
-      <div class="opcion-card">
-        <h3>🏪 Quiero mi propio negocio desde cero</h3>
-        <ul>
-          <li>
-            <span>Sin jefes ni gastos fijos</span>
-            <span class="descripcion-li">Manejás tus propios tiempos</span>
-          </li>
-          <li>
-            <span>Respaldo de empresa global</span>
-            <span class="descripcion-li">65 años de trayectoria mundial</span>
-          </li>
-          <li>
-            <span>Sistema probado</span>
-            <span class="descripcion-li">+1 millón de empresarios en el mundo</span>
-          </li>
-        </ul>
-        <button class="btn-opcion-verde" onclick="verAmway()">Conocé más →</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECCIÓN AMWAY -->
-  <div class="seccion-amway" id="seccionAmway">
+<!-- SECCIÓN AMWAY -->
+<div class="seccion-amway" id="seccionAmway">
 
     <!-- SLIDER -->
     <section class="slider-seccion">
