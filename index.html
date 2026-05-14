@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-37QJFED77C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,6 +11,8 @@
     gtag('config', 'G-37QJFED77C');
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <title>Trabajemos Juntos</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -194,8 +195,6 @@
       100% { transform: scale(1); }
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -307,7 +306,6 @@
     </div>
   </section>
 
-  <!-- OPORTUNIDAD -->
   <section class="oportunidad" id="oportunidadAmway" style="display:none;">
     <h2>¿Por qué Amway?</h2>
     <p class="subtitulo">No es una idea nueva ni un experimento. Es una empresa sólida con décadas de historia y millones de personas construyendo su futuro con ella.</p>
@@ -323,14 +321,25 @@
   </section>
 </div>
 
-<!-- BOTÓN FLOTANTE WHATSAPP -->
+<!-- FOOTER -->
+<footer style="background:#001f5b; padding:40px 20px; text-align:center; color:#c0d4ff;">
+  <p style="font-size:1.1rem; font-weight:700; color:#ffffff; margin-bottom:15px;">Gus Lopez</p>
+  <p style="font-size:0.9rem; margin-bottom:25px;">Emprendedor · Marketing Digital · Programación</p>
+  <div style="display:flex; justify-content:center; gap:20px; margin-bottom:25px;">
+    <a href="https://www.instagram.com/ggus.lopez" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">📷</a>
+    <a href="https://www.tiktok.com/@gguslopez" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">🎵</a>
+    <a href="https://wa.me/5492964454471" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">💬</a>
+  </div>
+  <p style="font-size:0.8rem; color:#8899bb;">© 2025 Gus Lopez · Todos los derechos reservados</p>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
 <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20saber%20m%C3%A1s" target="_blank" style="position:fixed; bottom:25px; right:25px; background:#25d366; color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; text-decoration:none; box-shadow:0 4px 15px rgba(0,0,0,0.3); z-index:999; animation:pulso 1.5s infinite;">💬</a>
 
 <script>
-    // GSAP ANIMACIONES
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from(".foto-perfil", { duration: 1, opacity: 0, y: -20, ease: "power3.out" });
+  gsap.from(".hero img", { duration: 1, opacity: 0, y: -20, ease: "power3.out" });
   gsap.from(".hero h1", { duration: 1, opacity: 0, y: 30, delay: 0.2, ease: "power3.out" });
   gsap.from(".hero p", { duration: 1, opacity: 0, y: 20, delay: 0.4, ease: "power3.out" });
   gsap.from(".video-placeholder", { duration: 1, opacity: 0, y: 20, delay: 0.6, ease: "power3.out" });
@@ -345,7 +354,6 @@
     ease: "power3.out"
   });
 
-  function abrirModal() {
   function abrirModal() { document.getElementById('modalOverlay').classList.add('abierto'); }
   function cerrarModal() { document.getElementById('modalOverlay').classList.remove('abierto'); }
   document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) cerrarModal(); });
@@ -381,23 +389,6 @@
     }
   }
 </script>
-<!-- FOOTER -->
-<footer style="
-  background: #001f5b;
-  padding: 40px 20px;
-  text-align: center;
-  color: #c0d4ff;
-">
-  <p style="font-size:1.1rem; font-weight:700; color:#ffffff; margin-bottom:15px;">Gus Lopez</p>
-  <p style="font-size:0.9rem; margin-bottom:25px;">Emprendedor · Marketing Digital · Programación</p>
-  
-  <div style="display:flex; justify-content:center; gap:20px; margin-bottom:25px;">
-    <a href="https://www.instagram.com/ggus.lopez" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">📷</a>
-    <a href="https://www.tiktok.com/@gguslopez" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">🎵</a>
-    <a href="https://wa.me/5492964454471" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">💬</a>
-  </div>
 
-  <p style="font-size:0.8rem; color:#8899bb;">© 2025 Gus Lopez · Todos los derechos reservados</p>
-</footer>
 </body>
 </html>
