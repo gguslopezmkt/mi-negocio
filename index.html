@@ -194,6 +194,8 @@
       100% { transform: scale(1); }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -325,6 +327,25 @@
 <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20saber%20m%C3%A1s" target="_blank" style="position:fixed; bottom:25px; right:25px; background:#25d366; color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; text-decoration:none; box-shadow:0 4px 15px rgba(0,0,0,0.3); z-index:999; animation:pulso 1.5s infinite;">💬</a>
 
 <script>
+    // GSAP ANIMACIONES
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".foto-perfil", { duration: 1, opacity: 0, y: -20, ease: "power3.out" });
+  gsap.from(".hero h1", { duration: 1, opacity: 0, y: 30, delay: 0.2, ease: "power3.out" });
+  gsap.from(".hero p", { duration: 1, opacity: 0, y: 20, delay: 0.4, ease: "power3.out" });
+  gsap.from(".video-placeholder", { duration: 1, opacity: 0, y: 20, delay: 0.6, ease: "power3.out" });
+  gsap.from(".hero-botones", { duration: 1, opacity: 0, y: 20, delay: 0.8, ease: "power3.out" });
+
+  gsap.from(".dato-card", {
+    scrollTrigger: { trigger: ".datos-grid", start: "top 80%" },
+    duration: 0.6,
+    opacity: 0,
+    y: 30,
+    stagger: 0.1,
+    ease: "power3.out"
+  });
+
+  function abrirModal() {
   function abrirModal() { document.getElementById('modalOverlay').classList.add('abierto'); }
   function cerrarModal() { document.getElementById('modalOverlay').classList.remove('abierto'); }
   document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) cerrarModal(); });
