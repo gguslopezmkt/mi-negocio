@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-37QJFED77C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,140 +11,80 @@
     gtag('js', new Date());
     gtag('config', 'G-37QJFED77C');
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <title>Gus Lopez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>Trabajemos Juntos</title>
   <style>
-    :root {
-      --negro: #0a0f1e;
-      --azul: #0d1f4e;
-      --acento: #2563eb;
-      --gris: #8892a4;
-      --gris-claro: #f5f6f8;
-      --blanco: #ffffff;
-    }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--blanco); color: var(--negro); }
+    body { font-family: 'Poppins', sans-serif; }
 
-    /* HERO */
     .hero {
-      background: var(--negro);
+      background: linear-gradient(135deg, #001f5b, #0047cc);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 40px 20px;
     }
-    .hero-content { max-width: 680px; }
-
-    .foto-perfil {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 32px;
-      border: 2px solid rgba(255,255,255,0.15);
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gris);
-      margin-bottom: 24px;
-    }
-
+    .hero-content { max-width: 700px; }
     .hero h1 {
-      font-size: 3.8rem;
-      font-weight: 900;
-      color: var(--blanco);
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
+      font-size: 3.5rem;
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
     }
-
-    .hero h1 span {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.4);
-    }
-
     .hero p {
-      font-size: 1rem;
-      color: var(--gris);
-      margin-bottom: 48px;
-      line-height: 1.8;
-      font-weight: 300;
+      font-size: 1.2rem;
+      color: #c0d4ff;
+      margin-bottom: 30px;
+      line-height: 1.7;
     }
-
     .video-placeholder {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
+      background: rgba(255,255,255,0.1);
+      border: 2px dashed #00c6ff;
+      border-radius: 12px;
       width: 100%;
       max-width: 560px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 48px auto;
-      color: var(--gris);
-      gap: 12px;
-    }
-    .video-placeholder .play {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
+      height: 315px;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 0 auto 35px auto;
+      color: #00c6ff;
       font-size: 1.2rem;
-      color: var(--blanco);
-    }
-    .video-placeholder p {
-      font-size: 0.85rem;
-      margin: 0;
+      font-weight: 600;
       letter-spacing: 1px;
-      text-transform: uppercase;
     }
-
     .hero-botones {
       display: flex;
-      gap: 12px;
+      gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
     }
-
     .btn {
-      padding: 14px 32px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      padding: 16px 35px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
       text-decoration: none;
       cursor: pointer;
       border: none;
-      transition: all 0.25s ease;
+      transition: transform 0.2s, background 0.2s;
       display: inline-block;
-      letter-spacing: 0.3px;
     }
-    .btn-primary { background: var(--blanco); color: var(--negro); }
-    .btn-primary:hover { background: #e8eaf0; transform: translateY(-1px); }
-    .btn-secondary { background: transparent; color: var(--blanco); border: 1px solid rgba(255,255,255,0.25); }
-    .btn-secondary:hover { border-color: var(--blanco); transform: translateY(-1px); }
+    .btn-primary { background-color: #00c6ff; color: #001f5b; }
+    .btn-primary:hover { background-color: #ffffff; transform: scale(1.05); }
+    .btn-secondary { background-color: transparent; color: #ffffff; border: 2px solid #ffffff; }
+    .btn-secondary:hover { background-color: #ffffff; color: #001f5b; transform: scale(1.05); }
 
-    /* MODAL */
     .modal-overlay {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.7);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -151,10 +92,10 @@
     }
     .modal-overlay.abierto { display: flex; }
     .modal {
-      background: var(--blanco);
+      background: #ffffff;
       border-radius: 20px;
-      padding: 40px;
-      max-width: 480px;
+      padding: 40px 35px;
+      max-width: 550px;
       width: 100%;
       position: relative;
       max-height: 90vh;
@@ -162,244 +103,95 @@
     }
     .modal-cerrar {
       position: absolute;
-      top: 20px; right: 20px;
-      font-size: 1.2rem;
+      top: 15px; right: 20px;
+      font-size: 1.5rem;
       cursor: pointer;
-      color: var(--gris);
+      color: #555;
       background: none;
       border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
     }
-    .modal-cerrar:hover { background: var(--gris-claro); }
-    .modal h2 { font-size: 1.5rem; color: var(--negro); font-weight: 700; margin-bottom: 6px; }
-    .modal .modal-subtitulo { color: var(--gris); font-size: 0.9rem; margin-bottom: 28px; }
+    .modal h2 { font-size: 1.6rem; color: #001f5b; font-weight: 800; margin-bottom: 10px; }
+    .modal .modal-subtitulo { color: #555; font-size: 0.95rem; margin-bottom: 25px; }
 
     .opcion-card {
-      border: 1px solid #e8eaf0;
-      border-radius: 12px;
+      border: 2px solid #e0e8ff;
+      border-radius: 14px;
       padding: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: border-color 0.2s, transform 0.2s;
     }
-    .opcion-card:hover { border-color: var(--acento); box-shadow: 0 4px 20px rgba(37,99,235,0.08); }
-    .opcion-card h3 { color: var(--negro); font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .opcion-card:hover { border-color: #0047cc; transform: translateY(-2px); }
+    .opcion-card h3 { color: #001f5b; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
     .opcion-card ul { list-style: none; padding: 0; }
-    .opcion-card ul li { padding: 5px 0; color: #555; font-size: 0.88rem; border-bottom: 1px solid #f0f0f0; }
+    .opcion-card ul li { padding: 6px 0; color: #444; font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; }
     .opcion-card ul li:last-child { border-bottom: none; }
-    .opcion-card ul li span { color: var(--acento); font-weight: 600; }
-    .descripcion-li { font-size: 0.78rem; color: var(--gris); display: block; }
-
-    .btn-modal {
-      margin-top: 14px;
-      background: var(--negro);
-      color: var(--blanco);
-      padding: 11px 22px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
+    .opcion-card ul li span { color: #0047cc; font-weight: 600; }
+    .descripcion-li { font-size: 0.82rem; color: #888; display: block; }
+    .btn-opcion {
+      margin-top: 15px;
+      background: #0047cc;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
       text-decoration: none;
       display: inline-block;
-      border: none;
-      cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-modal:hover { background: var(--azul); }
-    .btn-modal-verde {
-      margin-top: 14px;
-      background: #16a34a;
-      color: var(--blanco);
-      padding: 11px 22px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
+    .btn-opcion:hover { background: #001f5b; }
+    .btn-opcion-verde {
+      margin-top: 15px;
+      background: #00b050;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      border: none;
-      cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-modal-verde:hover { background: #15803d; }
+    .btn-opcion-verde:hover { background: #007a35; }
 
-    /* SECCIÓN AMWAY */
     .seccion-amway { display: none; }
     .seccion-amway.visible { display: block; }
 
-    /* SLIDER */
-    .slider-seccion {
-      background: var(--negro);
-      padding: 100px 20px;
-      text-align: center;
-    }
-    .slider-seccion h2 {
-      font-size: 2rem;
-      color: var(--blanco);
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .slider-seccion .subtitulo {
-      color: var(--gris);
-      font-size: 0.95rem;
-      margin-bottom: 50px;
-      font-weight: 300;
-    }
-    .slider-container { position: relative; max-width: 780px; margin: 0 auto; }
+    .oportunidad { background: #f4f7ff; padding: 80px 20px; text-align: center; }
+    .oportunidad h2 { font-size: 2.2rem; color: #001f5b; font-weight: 800; margin-bottom: 15px; }
+    .oportunidad .subtitulo { font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto 60px auto; line-height: 1.7; }
+    .datos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto 60px auto; }
+    .dato-card { background: #ffffff; border-radius: 16px; padding: 30px 20px; box-shadow: 0 4px 20px rgba(0,31,91,0.08); transition: transform 0.2s; }
+    .dato-card:hover { transform: translateY(-5px); }
+    .dato-card .icono { font-size: 2.5rem; margin-bottom: 15px; }
+    .dato-card .numero { font-size: 2rem; font-weight: 800; color: #0047cc; margin-bottom: 8px; }
+    .dato-card .descripcion { font-size: 0.95rem; color: #555; line-height: 1.5; }
+    .oportunidad .cta-texto { font-size: 1.2rem; color: #001f5b; font-weight: 600; margin-bottom: 25px; }
+
+    .slider-seccion { background: #001f5b; padding: 80px 20px; text-align: center; }
+    .slider-seccion h2 { font-size: 2.2rem; color: #ffffff; font-weight: 800; margin-bottom: 10px; }
+    .slider-seccion .subtitulo { color: #c0d4ff; font-size: 1rem; margin-bottom: 40px; }
+    .slider-container { position: relative; max-width: 800px; margin: 0 auto; }
     .slider-container img { width: 100%; border-radius: 12px; display: none; }
     .slider-container img.activa { display: block; }
+    .flechas { display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 25px; }
+    .flecha { background: #00c6ff; color: #001f5b; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.4rem; font-weight: 800; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .flecha:hover { background: #ffffff; transform: scale(1.1); }
+    .contador { color: #c0d4ff; font-size: 1rem; }
 
-    .progreso-barra {
-      max-width: 780px;
-      margin: 20px auto 0 auto;
-      height: 2px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progreso-relleno {
-      height: 100%;
-      width: 9%;
-      background: var(--blanco);
-      border-radius: 10px;
-      transition: width 0.3s ease;
-    }
-
-    .flechas {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .flecha {
-      background: rgba(255,255,255,0.08);
-      color: var(--blanco);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .flecha:hover { background: var(--blanco); color: var(--negro); }
-    .contador { color: var(--gris); font-size: 0.85rem; }
-
-    /* AGENDA */
-    .agenda-container {
-      display: none;
-      margin-top: 50px;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .agenda-container p {
-      color: var(--gris);
-      font-size: 0.9rem;
-      margin-top: 16px;
-      font-weight: 300;
-    }
-    .btn-agenda {
-      background: var(--blanco);
-      color: var(--negro);
-      padding: 16px 40px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s;
-    }
-    .btn-agenda:hover { background: #e8eaf0; transform: translateY(-2px); }
-
-    /* OPORTUNIDAD */
-    .oportunidad {
-      background: var(--gris-claro);
-      padding: 100px 20px;
-      text-align: center;
-    }
-    .oportunidad h2 {
-      font-size: 2rem;
-      color: var(--negro);
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-    .oportunidad .subtitulo {
-      font-size: 0.95rem;
-      color: var(--gris);
-      max-width: 500px;
-      margin: 0 auto 60px auto;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-    .datos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto 60px auto;
-    }
-    .dato-card {
-      background: var(--blanco);
-      border-radius: 12px;
-      padding: 28px 20px;
-      border: 1px solid #e8eaf0;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .dato-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
-    .dato-card .icono { font-size: 2rem; margin-bottom: 12px; }
-    .dato-card .numero { font-size: 1.8rem; font-weight: 900; color: var(--negro); margin-bottom: 6px; }
-    .dato-card .descripcion { font-size: 0.82rem; color: var(--gris); line-height: 1.5; }
-    .oportunidad .cta-texto { font-size: 1rem; color: var(--negro); font-weight: 600; margin-bottom: 20px; }
-
-    /* FOOTER */
-    footer {
-      background: var(--negro);
-      padding: 60px 20px;
-      text-align: center;
-    }
-    footer .nombre { font-size: 1rem; font-weight: 700; color: var(--blanco); margin-bottom: 8px; }
-    footer .tagline { font-size: 0.82rem; color: var(--gris); margin-bottom: 30px; font-weight: 300; }
-    footer .redes { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
-    footer .redes a { color: var(--gris); font-size: 1.3rem; text-decoration: none; transition: color 0.2s; }
-    footer .redes a:hover { color: var(--blanco); }
-    footer .copy { font-size: 0.75rem; color: #3a4060; }
-
-    /* WHATSAPP FLOTANTE */
-    .wpp-flotante {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      background: #25d366;
-      color: white;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      z-index: 999;
-      transition: transform 0.2s;
-    }
-    .wpp-flotante:hover { transform: scale(1.1); }
-
-    /* RESPONSIVE */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2.6rem; }
-      .hero-botones { flex-direction: column; align-items: center; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
       .video-placeholder { height: 200px; }
+      .hero-botones { flex-direction: column; align-items: center; }
+    }
+    @keyframes pulso {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
@@ -408,14 +200,10 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <img src="foto.png" alt="Gus Lopez" class="foto-perfil">
-    <span class="hero-tag">Emprendimiento · Marketing · Tecnología</span>
-    <h1>Trabajemos<br><span>Juntos</span></h1>
-    <p>Construyamos tu negocio digital desde cero.<br>Con propósito, estrategia y las herramientas correctas.</p>
-    <div class="video-placeholder">
-      <div class="play">▶</div>
-      <p>Video introducción</p>
-    </div>
+    <img src="foto.png" alt="Gus Lopez" style="width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:20px; border:4px solid #00c6ff;">
+    <h1>Trabajemos Juntos</h1>
+    <p>Construyamos tu negocio digital</p>
+    <div class="video-placeholder">▶ VIDEO INTRODUCCIÓN</div>
     <div class="hero-botones">
       <button class="btn btn-primary" onclick="abrirModal()">Quiero emprender</button>
       <button class="btn btn-secondary" onclick="abrirModalTienda()">Tienda Digital</button>
@@ -427,8 +215,8 @@
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
-    <h2>Empezamos juntos</h2>
-    <p class="modal-subtitulo">Te acompaño en cada paso del camino</p>
+    <h2>¿En qué te puedo ayudar?</h2>
+    <p class="modal-subtitulo">Elegí la opción que mejor se adapta a lo que necesitás</p>
     <div class="opcion-card">
       <h3>🏪 Quiero mi propio negocio desde cero</h3>
       <ul>
@@ -436,7 +224,7 @@
         <li><span>Respaldo de empresa global</span><span class="descripcion-li">65 años de trayectoria mundial</span></li>
         <li><span>Sistema probado</span><span class="descripcion-li">+1 millón de empresarios en el mundo</span></li>
       </ul>
-      <button class="btn-modal" onclick="verAmway()">Conocé más →</button>
+      <button class="btn-opcion-verde" onclick="verAmway()">Conocé más →</button>
     </div>
   </div>
 </div>
@@ -447,34 +235,34 @@
     <button class="modal-cerrar" onclick="cerrarModalTienda()">✕</button>
     <h2>🛍️ Tienda Digital</h2>
     <p class="modal-subtitulo">¿Cómo querés registrarte?</p>
-    <p style="background:#f0fdf4; color:#16a34a; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.85rem; margin-bottom:20px;">
-      ✅ 90 días de garantía en todas tus compras
+    <p style="background:#e8f4e8; color:#007a35; font-weight:600; padding:10px 15px; border-radius:8px; font-size:0.9rem; margin-bottom:20px;">
+      ✅ Con cualquiera de los dos registros contás con 90 días de garantía en todas tus compras
     </p>
     <div class="opcion-card" onclick="toggleCliente()">
       <h3>🛒 Cliente</h3>
-      <p style="color:#666; font-size:0.85rem;">Accedé a todos los productos directo de fábrica en tu casa</p>
+      <p style="color:#555; font-size:0.9rem;">Accedé a todos los productos directo de fábrica en tu casa</p>
       <div id="pasoCliente" style="display:none; margin-top:15px;">
-        <p style="color:var(--acento); font-weight:700; margin-bottom:10px; font-size:0.9rem;">Paso a paso:</p>
-        <ol style="padding-left:20px; color:#444; line-height:2; font-size:0.88rem;">
-          <li>Entrá a <a href="https://www.amway.com.ar/gguslopez" target="_blank" style="color:var(--acento);">amway.com.ar/gguslopez</a></li>
+        <p style="color:#0047cc; font-weight:700; margin-bottom:10px;">Paso a paso para registrarte:</p>
+        <ol style="padding-left:20px; color:#444; line-height:2;">
+          <li>Entrá a <a href="https://www.amway.com.ar/gguslopez" target="_blank" style="color:#0047cc;">amway.com.ar/gguslopez</a></li>
           <li>Clickeá en <strong>"Registrarme"</strong> → <strong>"Cliente"</strong></li>
           <li>Completá tu <strong>Nombre y Apellido</strong></li>
           <li>Ingresá tu <strong>Correo electrónico</strong></li>
           <li>Ingresá tu <strong>Teléfono</strong></li>
           <li>Creá tu <strong>Contraseña</strong><br>
-            <span style="font-size:0.78rem; color:#999;">Ej: <code>MiClave1!</code> — 8+ caracteres, mayúscula, número y símbolo</span>
+            <span style="font-size:0.82rem; color:#888;">Ejemplo: <code>MiClave1!</code> — mínimo 8 caracteres, mayúscula, minúscula, número y símbolo</span>
           </li>
           <li>Ingresá tu <strong>DNI</strong></li>
         </ol>
-        <a href="https://www.amway.com.ar/gguslopez" target="_blank" class="btn-modal" style="margin-top:15px;">
-          Ir a registrarme →
+        <a href="https://www.amway.com.ar/gguslopez" target="_blank" class="btn-opcion" style="margin-top:15px; display:inline-block;">
+          Ir a registrarme como cliente →
         </a>
       </div>
     </div>
     <div class="opcion-card">
       <h3>💼 Empresario</h3>
-      <p style="color:#666; font-size:0.85rem;">Comprá con 25% de descuento y escalá tu propia red</p>
-      <a href="https://calendly.com/gguslopez-amway/30min" class="btn-modal-verde" target="_blank" style="margin-top:14px; display:inline-block;">
+      <p style="color:#555; font-size:0.9rem;">Comprá con 25% de descuento y escalá tu propia red de distribución</p>
+      <a href="https://calendly.com/gguslopez-amway/30min" class="btn-opcion-verde" target="_blank" style="margin-top:15px; display:inline-block;">
         Quiero emprender →
       </a>
     </div>
@@ -484,7 +272,7 @@
 <!-- SECCIÓN AMWAY -->
 <div class="seccion-amway" id="seccionAmway">
   <section class="slider-seccion">
-    <h2>¿Por qué Network Marketing?</h2>
+    <h2>¿Por qué crear mi tienda en Network Marketing?</h2>
     <p class="subtitulo">Conocé las ventajas y desventajas de esta oportunidad</p>
     <div class="slider-container">
       <img src="slides/slide1.png" class="activa" alt="Slide 1">
@@ -499,51 +287,42 @@
       <img src="slides/slide10.png" alt="Slide 10">
       <img src="slides/slide11.png" alt="Slide 11">
     </div>
-    <div class="progreso-barra">
-      <div class="progreso-relleno" id="barraRelleno"></div>
+    <div class="progreso-container" style="max-width:800px; margin:20px auto 0 auto;">
+      <div style="height:6px; background:rgba(255,255,255,0.2); border-radius:10px; overflow:hidden;">
+        <div id="barraRelleno" style="height:100%; width:9%; background:#00c6ff; border-radius:10px; transition:width 0.3s ease;"></div>
+      </div>
     </div>
     <div class="flechas">
       <button class="flecha" onclick="cambiarSlide(-1)">&#8592;</button>
       <span class="contador" id="contador">1 / 11</span>
       <button class="flecha" onclick="cambiarSlide(1)">&#8594;</button>
     </div>
-    <div class="agenda-container" id="btnAgenda">
-      <a href="https://calendly.com/gguslopez-amway/30min" target="_blank" class="btn-agenda">
-        📅 Agendá una videollamada gratuita
+    <div id="btnAgenda" style="display:none; margin-top:30px; text-align:center; width:100%; padding-bottom:40px;">
+      <a href="https://calendly.com/gguslopez-amway/30min" target="_blank" style="background:#00c6ff; color:#001f5b; padding:18px 40px; border-radius:50px; font-size:1.1rem; font-weight:800; text-decoration:none; display:inline-block; animation:pulso 1.5s infinite;">
+        📅 Agendá una videollamada 1a1 gratuita
       </a>
-      <p>Conocé los productos, ganancias y beneficios</p>
+      <p style="color:#c0d4ff; margin-top:15px; font-size:0.95rem;">Conocé los productos, ganancias y beneficios</p>
     </div>
   </section>
 
+  <!-- OPORTUNIDAD -->
   <section class="oportunidad" id="oportunidadAmway" style="display:none;">
     <h2>¿Por qué Amway?</h2>
-    <p class="subtitulo">65 años construyendo el modelo de negocio más replicado del mundo.</p>
+    <p class="subtitulo">No es una idea nueva ni un experimento. Es una empresa sólida con décadas de historia y millones de personas construyendo su futuro con ella.</p>
     <div class="datos-grid">
-      <div class="dato-card"><div class="icono">🏆</div><div class="numero">#1</div><div class="descripcion">Empresa de venta directa según Direct Selling News 2024</div></div>
+      <div class="dato-card"><div class="icono">🏆</div><div class="numero">#1</div><div class="descripcion">Empresa de venta directa del mundo según Direct Selling News 2024</div></div>
       <div class="dato-card"><div class="icono">📅</div><div class="numero">65 años</div><div class="descripcion">De trayectoria ininterrumpida desde 1959</div></div>
       <div class="dato-card"><div class="icono">🌍</div><div class="numero">100+</div><div class="descripcion">Países y territorios en los 6 continentes</div></div>
-      <div class="dato-card"><div class="icono">👥</div><div class="numero">+1M</div><div class="descripcion">Empresarios independientes activos en el mundo</div></div>
+      <div class="dato-card"><div class="icono">👥</div><div class="numero">+1 millón</div><div class="descripcion">De empresarios independientes activos en el mundo</div></div>
       <div class="dato-card"><div class="icono">📊</div><div class="numero">Forbes</div><div class="descripcion">Entre las 100 empresas privadas más grandes de EE.UU.</div></div>
     </div>
     <p class="cta-texto">¿Querés ser parte de esto?</p>
-    <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Quiero%20agendar%20una%20videollamada%20gratuita%201%20a%201%20para%20iniciar%20mi%20negocio%20desde%200" class="btn" style="background:var(--negro); color:var(--blanco);" target="_blank">Hablemos →</a>
+    <a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Quiero%20agendar%20una%20videollamada%20gratuita%201%20a%201%20para%20iniciar%20mi%20negocio%20desde%200" class="btn" style="background-color:#0047cc; color:#fff;" target="_blank">Quiero unirme</a>
   </section>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p class="nombre">Gus Lopez</p>
-  <p class="tagline">Emprendedor · Marketing Digital · Programación</p>
-  <div class="redes">
-    <a href="https://www.instagram.com/TU_USUARIO" target="_blank">📷</a>
-    <a href="https://www.tiktok.com/@TU_USUARIO" target="_blank">🎵</a>
-    <a href="https://wa.me/5492964454471" target="_blank">💬</a>
-  </div>
-  <p class="copy">© 2025 Gus Lopez · Todos los derechos reservados</p>
-</footer>
-
-<!-- WHATSAPP FLOTANTE -->
-<a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20saber%20m%C3%A1s" target="_blank" class="wpp-flotante">💬</a>
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/5492964454471?text=Hola%20Gus!%20Vi%20tu%20p%C3%A1gina%20y%20quiero%20saber%20m%C3%A1s" target="_blank" style="position:fixed; bottom:25px; right:25px; background:#25d366; color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; text-decoration:none; box-shadow:0 4px 15px rgba(0,0,0,0.3); z-index:999; animation:pulso 1.5s infinite;">💬</a>
 
 <script>
   function abrirModal() { document.getElementById('modalOverlay').classList.add('abierto'); }
@@ -581,6 +360,23 @@
     }
   }
 </script>
+<!-- FOOTER -->
+<footer style="
+  background: #001f5b;
+  padding: 40px 20px;
+  text-align: center;
+  color: #c0d4ff;
+">
+  <p style="font-size:1.1rem; font-weight:700; color:#ffffff; margin-bottom:15px;">Gus Lopez</p>
+  <p style="font-size:0.9rem; margin-bottom:25px;">Emprendedor · Marketing Digital · Programación</p>
+  
+  <div style="display:flex; justify-content:center; gap:20px; margin-bottom:25px;">
+    <a href="https://www.instagram.com/ggus.lopez" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">📷</a>
+    <a href="https://www.tiktok.com/@gguslopez" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">🎵</a>
+    <a href="https://wa.me/5492964454471" target="_blank" style="color:#00c6ff; font-size:1.5rem; text-decoration:none;">💬</a>
+  </div>
 
+  <p style="font-size:0.8rem; color:#8899bb;">© 2025 Gus Lopez · Todos los derechos reservados</p>
+</footer>
 </body>
 </html>
